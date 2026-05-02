@@ -10,13 +10,14 @@ Russian version: [`README.ru.md`](README.ru.md)
 
 ### `K5K7`
 
-The **K5K7** jumper and the identically named SMD133 pin (on earlier SMD133 revisions — **K5K6**) set the address range used for cartridge configuration.  
-Inside the SMD133 there is an internal pull-down to GND, therefore:
+The **K5K7** jumper (on SMD133A the corresponding pin is labeled **K5K6**, on SMD133B — **K5K7**) selects which **additional** register block is active on the SMD133.
 
-- If the jumper is **open** (left disconnected), the standard MMC3 range `$5000–$5005` is used.
-- If the jumper is **closed**, the range depends on the SMD133 variant:
+- If the jumper is **closed**, the range `$5000–$5005` is used.
+- If the jumper is **open** (left open), the range depends on the SMD133 variant:
   - SMD133A → `$6000–$6005`
   - SMD133B → `$7000–$7005`
+
+If you are not planning to experiment with the SMD133, the simplest approach is to leave the jumper unsoldered (open). This has no effect on MMC3 mapper operation.
 
 ### `CPU_A1` and `CPU_A12`
 

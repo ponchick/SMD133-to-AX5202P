@@ -533,7 +533,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "production/${TITLE}-v${REVISION}/${TITLE}-v${REVISION}-gerber",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
