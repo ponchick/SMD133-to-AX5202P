@@ -17,13 +17,18 @@ The **K5K7** jumper (on SMD133A the corresponding pin is labeled **K5K6**, on SM
   - SMD133A → `$6000–$6005`
   - SMD133B → `$7000–$7005`
 
-If you are not planning to experiment with the SMD133, the simplest approach is to leave the jumper unsoldered (open). This has no effect on MMC3 mapper operation.
+**Note:** With the jumper open, the chip’s internal pull-down holds the pin to GND. If you want to drive this signal from an external source (for example, from the cartridge PCB), solder to the matching pad on the board and do not bridge the jumper. A closed jumper, conversely, pulls the pin to VCC.  
+If you are not planning to experiment with the SMD133, the simplest approach is to leave the jumper unsoldered — this does not affect MMC3 mapper operation.
 
 ### `CPU_A1` and `CPU_A12`
 
 The AX5202P does not have these pins, but the SMD133 does.  
-If you need authentic (original) MMC3 behaviour — short these jumpers.  
-There is a theory that everything may still work the same as on the AX5202P without them.
+These jumpers let you either bring in external address-line signals (for example, from the cartridge PCB) or tie them to ground.
+
+- **Close the jumpers** — the corresponding SMD133 pins are forced to GND. This yields behaviour close to authentic MMC3.
+- **Leave them open** — you can feed `CPU_A1` and `CPU_A12` from external circuitry by soldering to the jumper pads.
+
+**Important:** It is not recommended to leave these pins floating (connected neither to ground nor to an external signal). In theory this could lead to unpredictable mapper behaviour, although no one has deliberately verified this.
 
 ### `WRAM +CE` and `WRAM WE`
 
